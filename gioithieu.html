@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<htlm>
+
+<head>
+<style>
+
+nav{
+display: block;
+text-align:center; 
+}
+nav a {
+display: inline-block;
+padding: 0 10px;
+text-decoration: none;
+color: blue;
+}
+
+   nav a:hover {
+       color: #ff5722;
+       font-weight: bold;
+       transform: scale(1.1);
+       transition: 0.3s;
+   }
+
+h1{
+color:blue;
+text-align:center;
+font-size: 30px;
+}
+
+body{
+background-color: lightyellow;
+}
+
+p{
+color: red;
+text-align: center;
+}
+
+.anh{
+display: block;
+margin: auto;
+}
+
+a{
+display: block;
+text-align:center;
+}
+nav{
+text-align:center;
+margin: 20px;
+font-size: 22px;
+}
+.khung-anh {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 25px;
+}
+.khung-anh img {
+width: 200px;
+height: 140px;
+object-fit: cover;
+border-radius: 6px;
+box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+.tieu-de-map {
+text-align: center;
+color: #2c3e50;
+font-size: 18px;
+margin-top:35px;
+font-weight: bold;
+letter-spacing: 1px
+}
+.dong-dia-chi {
+text-align: center;
+font-size: 15px;
+color: #555;
+margin-bottom:20px;
+}
+.dong-dia-chi strong {
+color: #e74c3c;
+}
+
+</style>
+	<title>Nhà nuôi bồ câu Bốn Tân</title>
+</head>
+
+<body>
+<nav style="text-align: center; padding: 20px; font-size: 18px;">
+        <a href="index.html" style="margin: 0 15px; text-decoration: none; color: blue;">Trang chủ</a> | 
+        <a href="gioithieu.html" style="margin: 0 15px; text-decoration: none; color: blue;">Giới thiệu</a> | 
+        <a href="giachim.html" style="margin: 0 15px; text-decoration: none; color: blue;">Giá chim</a> | 
+        <a href="hinhanh.html" style="margin: 0 15px; text-decoration: none; color: blue;">Hình ảnh</a> | 
+        <a href="tintuc.html" style="margin: 0 15px; text-decoration: none; color: blue;">Tin tức</a> | 
+        <a href="lienhe.html" style="margin: 0 15px; text-decoration: none; color: blue;">Liên hệ</a> |
+    </nav>
+
+<!-- TOÀN BỘ PHẦN NỘI DUNG MỚI ĐÃ ĐƯỢC SẮP XẾP ĐẸP MẮT VÀ GOM VÀO KHUNG TRẮNG -->
+    <div style="max-width: 750px; margin: 30px auto; background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05); font-family: Arial, sans-serif;">
+        
+        <!-- 1. Tiêu đề chính -->
+        <h2 style="text-align: center; color: #0044cc; font-size: 26px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 0.5px;">
+            GIỚI THIỆU NHÀ NUÔI BỒ CÂU BỐN TÂN
+        </h2>
+
+        <!-- 2. Đoạn văn giới thiệu (Đã xóa bỏ hoàn toàn màu đỏ cũ) -->
+        <div style="text-align: center; line-height: 1.8; color: #333333; font-size: 16px; margin-bottom: 30px;">
+            <p style="margin: 0 0 12px 0; color: #333333;">Chào mừng quý khách đến với trang thông tin của Nhà nuôi bồ câu Bốn Tân.</p>
+            <p style="margin: 0 0 12px 0; color: #333333;">Nhà nuôi chim bồ câu Bốn Tân chuyên cung cấp giống chim bồ câu pháp, bồ câu giống chất lượng cao, bồ câu ra ràng 25-30 ngày tuổi.</p>
+            <p style="margin: 0; color: #333333;">Với kinh nghiệm vốn có, nhà nuôi bồ câu Bốn Tân cùng chia sẻ với sự chân thành, tích cực nhất cả về kinh nghiệm và sản phẩm tốt nhất.</p>
+        </div>
+
+        <!-- 3. Khung chứa 3 hình ảnh nằm ngang -->
+        <div class="khung-anh" style="margin-bottom: 35px;">
+            <img src="chim1.jpg" alt="Chim bồ câu 1">
+            <img src="chim2.jpg" alt="Chim bồ câu 2">
+            <img src="chim3.jpg" alt="Chim bồ câu 3">
+        </div>
+
+        <!-- Đường gạch ngang ngăn cách nhẹ nhàng -->
+        <hr style="border: 0; border-top: 1px solid #eeeeee; margin: 30px 0;">
+
+        <!-- 4. Tiêu đề bản đồ và Địa chỉ chữ đưa lên TRÊN bản đồ để đọc trước -->
+        <p class="tieu-de-map" style="margin-top: 0;">ĐỊA CHỈ & BẢN ĐỒ ĐƯỜNG ĐI</p>
+        <p class="dong-dia-chi"><strong>Địa chỉ:</strong> 04 Trần Thái Tông, phường Nghĩa Lộ, Quảng Ngãi</p>
+
+        <!-- 5. Bản đồ nằm dưới cùng cực kỳ ngay ngắn, có bo góc đẹp -->
+        <div style="width: 100%; text-align: center; margin-top: 15px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.5969382235603!2d108.78100587375153!3d15.125125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDA3JzMwLjUiTiAxMDjCsDQ2JzU5LjYiRQ!5e0!3m2!1svi!2svn!4v1680000000000" width="100%" height="350" style="border:0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div> 
+<br>
+
+</body>
+
+</html>
