@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt Mua - Trại Chim Bồ Câu Bổn Tân</title>
+    <title>Đặt Mua Trực Tuyến - Trại Chim Bồ Câu Bổn Tân</title>
 </head>
 <body style="background-color: #faf9f6; margin: 0; padding: 0; font-family: Arial, sans-serif;">
 
-    <!-- Menu đồng bộ chữ màu xanh -->
+    <!-- Menu đồng bộ màu xanh nhã nhặn -->
     <nav style="text-align: center; padding: 15px 5px; background-color: #f1f5f9; border-radius: 8px; margin: 10px auto; max-width: 95%;">
         <a href="index.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Trang chủ</a>
         <a href="gioithieu.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Giới thiệu</a>
@@ -18,23 +18,44 @@
         <a href="lienhe.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Liên hệ</a>
     </nav>
 
-    <!-- Nội dung Đặt mua trực tuyến giống trang giá chim -->
-    <div style="max-width: 800px; margin: 20px auto; background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <!-- Nội dung Đặt mua có Form gửi về Gmail -->
+    <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
         <h2 style="text-align: center; color: #0044cc; text-transform: uppercase; margin-bottom: 20px; border-bottom: 2px solid #0044cc; padding-bottom: 10px;">Đặt Mua Trực Tuyến</h2>
         
-        <div style="line-height: 1.8; font-size: 18px; color: #333;">
-            <p>Để đặt mua chim bồ câu nhanh chóng, quý khách có thể liên hệ trực tiếp với chúng tôi qua các kênh sau:</p>
-            
-            <ul style="padding-left: 20px; margin-top: 15px;">
-                <li style="margin-bottom: 10px;"><strong>Gọi điện thoại trực tiếp:</strong> <span style="color: #e60000; font-weight: bold;">0377.723.152</span> hoặc <span style="color: #e60000; font-weight: bold;">0914.121.850</span></li>
-                <li style="margin-bottom: 10px;"><strong>Nhắn tin Zalo:</strong> <span style="color: #0068ff; font-weight: bold;">0377.723.152</span> (Trại Chim Bổn Tân)</li>
-                <li style="margin-bottom: 10px;"><strong>Gửi Email:</strong> <span style="font-style: italic;">tandoqngai@gmail.com</span></li>
-            </ul>
+        <p style="font-size: 16px; color: #555; text-align: center; margin-bottom: 25px;">Quý khách vui lòng điền thông tin vào mẫu dưới đây. Thông tin đặt hàng sẽ được gửi trực tiếp về trại, chúng tôi sẽ liên hệ lại ngay!</p>
 
-            <div style="background-color: #f8fafc; padding: 15px; border-left: 4px solid #0044cc; margin-top: 25px; font-size: 16px; color: #555;">
-                <p style="margin: 0; font-weight: bold; color: #333;">Lưu ý khi đặt hàng:</p>
-                <p style="margin: 5px 0 0 0;">Quý khách vui lòng cung cấp rõ thông tin về loại chim muốn mua (chim giống, chim ra ràng...), số lượng và địa chỉ nhận hàng để trại chuẩn bị chu đáo nhất.</p>
+        <!-- BIỂU MẪU ĐẶT HÀNG -->
+        <form action="https://formspree.io/f/xvgopnle" method="POST" style="font-size: 16px;">
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 5px;">Họ và tên khách hàng *</label>
+                <input type="text" name="Hoten" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px;">
             </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 5px;">Số điện thoại liên hệ *</label>
+                <input type="tel" name="Dienthoai" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 5px;">Địa chỉ nhận hàng *</label>
+                <input type="text" name="Diachi" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 5px;">Loại chim & Số lượng muốn mua *</label>
+                <textarea name="Noidung_Datmua" rows="4" required placeholder="Ví dụ: 5 đôi chim giống, 10 con chim ra ràng..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; font-family: Arial, sans-serif;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; background-color: #0044cc; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px;">
+                BẤM ĐỂ GỬI ĐƠN HÀNG
+            </button>
+        </form>
+
+        <div style="background-color: #f8fafc; padding: 15px; border-left: 4px solid #0044cc; margin-top: 25px; font-size: 15px; color: #555; line-height: 1.6;">
+            <p style="margin: 0; font-weight: bold; color: #333;">Hoặc liên hệ trực tiếp nhanh qua:</p>
+            <p style="margin: 5px 0 0 0;">📞 Điện thoại: <strong>0377.723.152</strong> - <strong>0914.121.850</strong></p>
+            <p style="margin: 2px 0 0 0;">💬 Zalo: <strong>0377.723.152</strong> (Trại Chim Bổn Tân)</p>
         </div>
     </div>
 
