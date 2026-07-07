@@ -21,7 +21,7 @@
         
         <h2 style="color: #0044cc; font-size: 20px; margin-top: 10px; margin-bottom: 20px;">🛒 ĐẶT MUA CHIM BỒ CÂU TRỰC TUYẾN</h2>
 
-        <form action="https://formspree.io/f/mqevnope" method="POST">
+        <form action="https://formspree.io/f/mqevnope">
             
             <p style="margin-bottom: 5px; font-weight: bold; color: #333;">Họ và tên người đặt mua:</p>
             <input type="text" name="hoten" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px;">
@@ -49,3 +49,32 @@
 
 </body>
 </html>
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var nutGui = this.querySelector('button');
+    nutGui.innerText = "⏳ Đang gửi đơn hàng...";
+    nutGui.disabled = true;
+
+    var formData = new FormData(this);
+
+    fetch("https://formspree.io/f/mqevnope", {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+        if (response.ok) {
+            // Gửi thành công, chuyển về trang camon.html tiếng Việt của chú
+            window.location.href = "camon.html";
+        } else {
+            alert("Có lỗi xảy ra, chú vui lòng kiểm tra lại kết nối mạng!");
+            nutGui.innerText = "🚀 BẤM VÀO ĐÂY ĐỂ GỬI ĐƠN ĐẶT HÀNG";
+            nutGui.disabled = false;
+        }
+    }).catch(function(error) {
+        alert("Có lỗi xảy ra, chú vui lòng thử lại sau!");
+        nutGui.innerText = "🚀 BẤM VÀO ĐÂY ĐỂ GỬI ĐƠN ĐẶT HÀNG";
+        nutGui.disabled = false;
+    });
+});
+</script>
