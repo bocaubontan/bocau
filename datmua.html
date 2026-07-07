@@ -4,66 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt Mua Chim Bồ Câu - Trại Chim Bổn Tân</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body style="background-color: #faf9f6; margin: 0; padding: 0; font-family: Arial, sans-serif;">
 
-    <!-- MENU ĐIỀU HƯỚNG -->
     <nav style="text-align: center; padding: 15px 5px; background-color: #f1f5f9; border-radius: 8px; margin: 10px auto; max-width: 95%;">
         <a href="index.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Trang chủ</a>
         <a href="gioithieu.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Giới thiệu</a>
         <a href="giachim.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Giá chim</a>
         <a href="hinhanh.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Hình ảnh</a>
         <a href="tintuc.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Tin tức</a>
-        <a href="datmua.html" style="margin: 5px 8px; text-decoration: none; color: #e60000; font-size: 16px; display: inline-block; font-weight: bold;">Đặt mua</a>
+        <a href="datmua.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Đặt mua</a>
         <a href="lienhe.html" style="margin: 5px 8px; text-decoration: none; color: blue; font-size: 16px; display: inline-block; font-weight: bold;">Liên hệ</a>
     </nav>
 
-    <!-- NỘI DUNG CHÍNH -->
-    <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <h1 style="text-align: center; color: #0044cc; text-transform: uppercase; margin-bottom: 5px; font-size: 24px;">ĐẶT MUA TRỰC TUYẾN</h1>
-        <p style="text-align: center; font-style: italic; color: #555; margin-top: 0;">Để đặt mua chim bồ câu nhanh chóng, quý khách có thể điền vào form dưới đây hoặc liên hệ trực tiếp với chúng tôi</p>
+    <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
         
-        <hr style="border: 1px solid #eee; margin: 20px 0;">
+        <h2 style="color: #0044cc; font-size: 20px; margin-top: 10px; margin-bottom: 20px;">🛒 ĐẶT MUA CHIM BỒ CÂU TRỰC TUYẾN</h2>
 
-        <!-- THÔNG TIN LIÊN HỆ NHANH -->
-        <div style="line-height: 1.8; font-size: 16px; margin-bottom: 25px; background-color: #f8fafc; padding: 15px; border-radius: 8px;">
-            <p style="margin: 5px 0;">• <strong>Gọi điện trực tiếp:</strong> <span style="color: #e60000; font-weight: bold; display: inline-block; vertical-align: top;">0377.723.152<br>hoặc 0914.121.850</span></p>
-            <p style="margin: 5px 0;">• <strong>Nhắn tin Zalo:</strong> <span style="color: #0068ff; font-weight: bold;">0377.723.152</span> (Trại Chim Bổn Tân)</p>
-            <p style="margin: 5px 0;">• <strong>Gửi Email:</strong> tandoqngai@gmail.com</p>
-        </div>
-
-        <!-- KHUNG FORM ĐẶT HÀNG -->
-        <div style="background-color: #f1f5f9; padding: 20px; border-radius: 10px; border: 1px solid #cbd5e1;">
-            <h3 style="margin-top: 0; color: #0f172a; border-bottom: 2px solid #0044cc; padding-bottom: 8px;"><i class="fa-solid fa-file-pen"></i> Form Điền Thông Tin Đặt Mua</h3>
+        <form action="https://formspree.io/f/xoqgpjwd" method="POST">
             
-            <form action="https://formspree.io/f/⚠️THAY_MÃ_FORM_TẠI_ĐÂY⚠️" method="POST">
-                
-                <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #334155;">Họ và tên khách hàng *</label>
-                <input type="text" name="hoten" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #94a3b8; border-radius: 5px; box-sizing: border-box; font-size: 16px;">
+            <p style="margin-bottom: 5px; font-weight: bold; color: #333;">Họ và tên người đặt mua:</p>
+            <input type="text" name="hoten" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px;">
 
-                <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #334155;">Số điện thoại liên hệ *</label>
-                <input type="tel" name="sodienthoai" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #94a3b8; border-radius: 5px; box-sizing: border-box; font-size: 16px;">
+            <p style="margin-bottom: 5px; font-weight: bold; color: #333;">Số điện thoại liên hệ:</p>
+            <input type="tel" name="sodienthoai" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px;">
 
-                <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #334155;">Địa chỉ nhận hàng (Tỉnh/Huyện/Xã) *</label>
-                <input type="text" name="diachi" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #94a3b8; border-radius: 5px; box-sizing: border-box; font-size: 16px;">
+            <p style="margin-bottom: 5px; font-weight: bold; color: #333;">Loại bồ câu muốn đặt mua:</p>
+            <select name="loaichim" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; background-color: #fff;">
+                <option value="Bồ câu Pháp Sinh Sản (400.000đ/cặp)">Bồ câu Pháp Sinh Sản (400.000đ/cặp)</option>
+                <option value="Bồ câu Pháp Hậu Bị (250.000đ/cặp)">Bồ câu Pháp Hậu Bị (250.000đ/cặp)</option>
+                <option value="Bồ câu Pháp Chim Ra Ràng (120.000đ/cặp)">Bồ câu Pháp Chim Ra Ràng (120.000đ/cặp)</option>
+                <option value="Loại khác / Yêu cầu riêng">Loại khác / Yêu cầu riêng</option>
+            </select>
 
-                <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #334155;">Loại chim & Số lượng cần mua *</label>
-                <textarea name="noidung_datmua" rows="4" placeholder="Ví dụ: 5 cặp chim giống Pháp, 10 con chim ra ràng..." required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #94a3b8; border-radius: 5px; box-sizing: border-box; font-size: 16px; font-family: Arial, sans-serif;"></textarea>
+            <p style="margin-bottom: 5px; font-weight: bold; color: #333;">Số lượng đặt mua hoặc Yêu cầu cụ thể:</p>
+            <textarea name="soluong_yeucau" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; font-family: Arial, sans-serif;"></textarea>
 
-                <button type="submit" style="width: 100%; background-color: #0044cc; color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold; font-size: 18px; cursor: pointer; transition: 0.3s;">
-                    <i class="fa-solid fa-paper-plane"></i> BẤM GỬI ĐƠN ĐẶT HÀNG
-                </button>
-                
-            </form>
-        </div>
-
-        <!-- KHUNG LƯU Ý -->
-        <div style="border-left: 4px solid #0044cc; background-color: #f8fafc; padding: 15px; margin-top: 20px; border-radius: 0 8px 8px 0;">
-            <p style="margin: 0; font-weight: bold; color: #1e293b;">Lưu ý khi đặt hàng:</p>
-            <p style="margin: 5px 0 0 0; color: #475569; font-size: 15px; line-height: 1.5;">Quý khách vui lòng cung cấp rõ thông tin về loại chim muốn mua (chim giống, chim ra ràng...), số lượng và địa chỉ nhận hàng để trại chuẩn bị chu đáo nhất.</p>
-        </div>
-
+            <button type="submit" style="width: 100%; background-color: #ff3b00; color: white; padding: 14px; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; text-transform: uppercase;">
+                🚀 BẤM VÀO ĐÂY ĐỂ GỬI ĐƠN ĐẶT HÀNG
+            </button>
+            
+        </form>
     </div>
 
 </body>
