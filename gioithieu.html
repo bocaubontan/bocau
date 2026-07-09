@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu - Nhà nuôi bồ câu Bổn Tân</title>
     <style>
-        .tieude-chinh { text-align: center; color: #0044cc; font-size: 18px; margin-top: 35px; font-weight: bold; letter-spacing: 1px; }
-        .dong-dia-chi { text-align: center; font-size: 15px; color: #555; margin-bottom: 20px; }
-        .dong-dia-chi strong { color: #e74c3c; }
+        /* Sửa lỗi ảnh bị bung to */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        /* Giữ khung nội dung gọn gàng giữa màn hình máy tính */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .thanh-pho-anh {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .thanh-pho-anh img {
+            width: 31%;
+            min-width: 200px;
+            object-fit: cover;
+        }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #faf9f6; font-family: Arial, sans-serif;">
+<body style="margin: 0; padding: 0; background-color: #faf9f6; font-family: Arial, sans-serif; line-height: 1.6;">
 
     <!-- THANH MENU KHÓA CỐ ĐỊNH TRÊN CÙNG MÀN HÌNH -->
     <nav style="text-align: center; padding: 15px 5px; background-color: #f1f5f9; border-radius: 0 0 8px 8px; margin: 0 auto; max-width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
@@ -24,44 +48,35 @@
     </nav>
 
     <!-- ĐOẠN ĐỆM TRÁNH BỊ MENU ĐÈ MẤT CHỮ ĐẦU TRANG -->
-    <div style="height: 70px; width: 100%;"></div>
-<!-- TOÀN BỘ PHẦN NỘI DUNG MỚI ĐÃ ĐƯỢC SẮP XẾP ĐẸP MẮT VÀ GOM VÀO KHUNG TRẮNG -->
-    <div style="max-width: 750px; margin: 30px auto; background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05); font-family: Arial, sans-serif;">
+    <div style="height: 75px; width: 100%;"></div>
+
+    <!-- KHUNG NỘI DUNG CHÍNH -->
+    <div class="container">
+        <h1 style="text-align: center; color: #0044cc; font-size: 24px; margin-top: 10px;">GIỚI THIỆU NHÀ NUÔI BỒ CÂU BỔN TÂN</h1>
         
-        <!-- 1. Tiêu đề chính -->
-        <h2 style="text-align: center; color: #0044cc; font-size: 26px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 0.5px;">
-            GIỚI THIỆU NHÀ NUÔI BỒ CÂU BỐN TÂN
-        </h2>
+        <p style="text-align: center; color: #555; font-style: italic;">Chào mừng quý khách đến với trang thông tin của Nhà nuôi bồ câu Bổn Tân.</p>
 
-        <!-- 2. Đoạn văn giới thiệu (Đã xóa bỏ hoàn toàn màu đỏ cũ) -->
-        <div style="text-align: center; line-height: 1.8; color: #333333; font-size: 16px; margin-bottom: 30px;">
-            <p style="margin: 0 0 12px 0; color: #333333;">Chào mừng quý khách đến với trang thông tin của Nhà nuôi bồ câu Bốn Tân.</p>
-            <p style="margin: 0 0 12px 0; color: #333333;">Nhà nuôi chim bồ câu Bốn Tân chuyên cung cấp giống chim bồ câu pháp, bồ câu giống chất lượng cao, bồ câu ra ràng 25-30 ngày tuổi.</p>
-            <p style="margin: 0; color: #333333;">Với kinh nghiệm vốn có, nhà nuôi bồ câu Bốn Tân cùng chia sẻ với sự chân thành, tích cực nhất cả về kinh nghiệm và sản phẩm tốt nhất.</p>
+        <p style="text-align: justify; text-indent: 20px;">Nhà nuôi chim bồ câu Bổn Tân chuyên cung cấp giống chim bồ câu pháp, bồ câu giống chất lượng cao, bồ câu ra ràng 25-30 ngày tuổi.</p>
+
+        <p style="text-align: justify; text-indent: 20px;">Với kinh nghiệm vốn có, nhà nuôi bồ câu Bổn Tân cùng chia sẻ với sự chân thành, tích cực nhất cả về kinh nghiệm và sản phẩm tốt nhất.</p>
+
+        <!-- KHU VỰC HÌNH ẢNH BAO GỌN -->
+        <div class="thanh-pho-anh">
+            <img src="chuongnuoi.jpg" alt="Chuồng nuôi bồ câu">
+            <img src="mangan.jpg" alt="Máng ăn bồ câu">
+            <img src="mangnuoc.jpg" alt="Máng nước bồ câu">
         </div>
 
-        <!-- 3. Khung chứa 3 hình ảnh nằm ngang -->
-        <div class="khung-anh" style="margin-bottom: 35px;">
-            <img src="chim1.jpg" alt="Chim bồ câu 1">
-            <img src="chim2.jpg" alt="Chim bồ câu 2">
-            <img src="chim3.jpg" alt="Chim bồ câu 3">
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+        <h3 style="text-align: center; color: #0044cc;">ĐỊA CHỈ & BẢN ĐỒ ĐƯỜNG ĐI</h3>
+        <p style="text-align: center; font-size: 16px;"><strong>Địa chỉ:</strong> 04 Trần Thái Tông, phường Nghĩa Lộ, Quảng Ngãi</p>
+        
+        <!-- BẢN ĐỒ GOOGLE MAPS -->
+        <div style="text-align: center; margin-top: 15px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3853.0763595604473!2d108.7885449!3d15.1051515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316ba3094c92b95b%3A0x67396a848c41258d!2zMDQgVHLhuqduIFRow6FpIFTDtG5nLCBOZ2jEqWEgTOG7mSwgUXXhuqNuZyBOZ8OjaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s" width="100%" height="350" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-
-        <!-- Đường gạch ngang ngăn cách nhẹ nhàng -->
-        <hr style="border: 0; border-top: 1px solid #eeeeee; margin: 30px 0;">
-
-        <!-- 4. Tiêu đề bản đồ và Địa chỉ chữ đưa lên TRÊN bản đồ để đọc trước -->
-        <p class="tieu-de-map" style="margin-top: 0;">ĐỊA CHỈ & BẢN ĐỒ ĐƯỜNG ĐI</p>
-        <p class="dong-dia-chi"><strong>Địa chỉ:</strong> 04 Trần Thái Tông, phường Nghĩa Lộ, Quảng Ngãi</p>
-
-        <!-- 5. Bản đồ nằm dưới cùng cực kỳ ngay ngắn, có bo góc đẹp -->
-        <div style="width: 100%; text-align: center; margin-top: 15px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.5969382235603!2d108.78100587375153!3d15.125125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDA3JzMwLjUiTiAxMDjCsDQ2JzU5LjYiRQ!5e0!3m2!1svi!2svn!4v1680000000000" width="100%" height="350" style="border:0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-    </div> 
-<br>
+    </div>
 
 </body>
-
 </html>
