@@ -23,14 +23,11 @@
             border-radius: 6px; 
             font-size: 12px !important; 
             background-color: #fff;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
         }
 
-        /* Bắt buộc chữ trong danh sách chọn phải nhỏ gọn trên mọi điện thoại */
+        /* Chữ trong danh sách chọn mặt hàng được thu nhỏ gọn gàng */
         select option { 
-            font-size: 12px !important; 
+            font-size: 11px !important; 
             padding: 4px;
         }
 
@@ -118,7 +115,7 @@
                           "- Số lượng: " + soLuong + "\n" +
                           "- Ghi chú: " + (ghiChu ? ghiChu : "Không");
 
-            alert("Cảm ơn quý khách! Đơn hàng đã được xác nhận.");
+            alert("Cảm ơn quý khách! Thông tin đơn hàng đã sẵn sàng gửi tới Bổn Tân.");
             window.location.href = "https://zalo.me/0983134114?text=" + encodeURIComponent(noiDung);
         }
     </script>
