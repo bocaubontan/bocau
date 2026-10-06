@@ -14,10 +14,7 @@
         .container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
         .form-group { margin-bottom: 18px; }
         label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 16px; color: #1e293b; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
-        .checkbox-group { display: flex; flex-direction: column; gap: 10px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
-        .checkbox-item { display: flex; align-items: center; gap: 10px; font-size: 16px; cursor: pointer; }
-        .checkbox-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; background-color: #fff; }
         button { background-color: #ff4500; color: white; border: none; padding: 15px 20px; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
         button:hover { background-color: #e03e00; }
     </style>
@@ -40,7 +37,7 @@
 
     <div class="container">
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 22px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 15px; margin-bottom: 20px;">Vui lòng điền thông tin bên dưới, nhà nuôi bồ câu Bổn Tân sẽ chủ động gọi điện xác nhận đơn hàng ngay cho quý khách.</p>
+        <p style="text-align: center; color: #475569; font-size: 15px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, nhà nuôi bồ câu Bổn Tân sẽ chủ động liên hệ lại ngay cho quý khách.</p>
 
         <form action="https://formspree.io/f/xbjnqkyv" method="POST">
             
@@ -55,24 +52,30 @@
             </div>
 
             <div class="form-group">
-                <label>Chọn loại bồ câu đặt mua (Có thể chọn nhiều loại):</label>
-                <div class="checkbox-group">
-                    <label class="checkbox-item"><input type="checkbox" name="Loại đặt mua" value="Bồ câu Pháp giống"> Bồ câu Pháp giống</label>
-                    <label class="checkbox-item"><input type="checkbox" name="Loại đặt mua" value="Bồ câu ra ràng 25-30 ngày tuổi"> Bồ câu ra ràng (25 - 30 ngày tuổi)</label>
-                    <label class="checkbox-item"><input type="checkbox" name="Loại đặt mua" value="Bồ câu hầm thuốc bắc (100k/con)"> 🍲 Bồ câu hầm thuốc bắc (100k/con)</label>
-                    <label class="checkbox-item"><input type="checkbox" name="Loại đặt mua" value="Bồ câu nấu đỗ đen (100k/con)"> 🍲 Bồ câu nấu đỗ đen (100k/con)</label>
-                    <label class="checkbox-item"><input type="checkbox" name="Loại đặt mua" value="Bồ câu hầm hạt sen (100k/con)"> 🍲 Bồ câu hầm hạt sen (100k/con)</label>
-                </div>
+                <label for="product">Chọn loại bồ câu đặt mua (*):</label>
+                <select id="product" name="Loại bồ câu đặt mua" required>
+                    <option value="" disabled selected>-- Bấm vào đây để chọn loại bồ câu --</option>
+                    <optgroup label="🕊️ BỒ CÂU GIỐNG & RA RÀNG">
+                        <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ / cặp</option>
+                        <option value="Bồ câu hậu bị 2 tháng tuổi (250k/cặp)">Bồ câu hậu bị 2 tháng tuổi - 250.000đ / cặp</option>
+                        <option value="Bồ câu ra ràng (100k/cặp)">Bồ câu ra ràng - 100.000đ / cặp</option>
+                    </optgroup>
+                    <optgroup label="🍲 BỒ CÂU CHẾ BIẾN MÓN ĂN (100k/con)">
+                        <option value="Bồ câu hầm thuốc bắc (100k/con)">🍲 Bồ câu hầm thuốc bắc - 100.000đ / con</option>
+                        <option value="Bồ câu nấu đỗ đen (100k/con)">🍲 Bồ câu nấu đỗ đen - 100.000đ / con</option>
+                        <option value="Bồ câu hầm hạt sen (100k/con)">🍲 Bồ câu hầm hạt sen - 100.000đ / con</option>
+                    </optgroup>
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="quantity">Số lượng đặt mua:</label>
-                <input type="text" id="quantity" name="Số lượng" placeholder="Ví dụ: 2 con, 5 cặp..." required>
+                <label for="quantity">Số lượng đặt mua (*):</label>
+                <input type="text" id="quantity" name="Số lượng" placeholder="Ví dụ: 2 cặp, 5 con..." required>
             </div>
 
             <div class="form-group">
                 <label for="note">Ghi chú thêm (Nếu có):</label>
-                <textarea id="note" name="Ghi chú" rows="3" placeholder="Ví dụ: Giao buổi sáng, làm sẵn sạch sẽ..."></textarea>
+                <textarea id="note" name="Ghi chú" rows="3" placeholder="Ví dụ: Giao buổi sáng, cần tư vấn thêm cách nuôi..."></textarea>
             </div>
 
             <button type="submit">XÁC NHẬN ĐẶT MUA NGAY</button>
