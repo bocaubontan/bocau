@@ -14,12 +14,15 @@
         label { display: block; font-weight: bold; margin-bottom: 6px; font-size: 14px; color: #1e293b; }
         input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 13px; background-color: #fff; }
         
-        /* Cấu hình chữ trong menu chọn mặt hàng siêu nhỏ gọn */
+        /* Cấu hình chữ trong menu danh sách chọn mặt hàng nhỏ gọn */
         select { font-size: 12px !important; }
         select option { font-size: 11px !important; padding: 4px 2px; }
 
         button { background-color: #ff4500; color: white; border: none; padding: 13px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
         button:hover { background-color: #e03e00; }
+        
+        /* Thông báo thành công */
+        #success-msg { display: none; background-color: #d4edda; color: #155724; padding: 12px; border-radius: 6px; border: 1px solid #c3e6cb; margin-bottom: 15px; text-align: center; font-weight: bold; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -37,21 +40,23 @@
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 19px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
         <p style="text-align: center; color: #475569; font-size: 13px; margin-bottom: 18px;">Vui lòng chọn loại bồ câu và điền thông tin, Nhà nuôi bồ câu Bổn Tân sẽ chủ động liên hệ lại ngay cho quý khách.</p>
 
-        <form action="mailto:bocaubontan@gmail.com" method="POST" enctype="text/plain">
+        <div id="success-msg">✅ Đơn hàng của quý khách đã được ghi nhận thành công! Chúng tôi sẽ liên hệ lại ngay.</div>
+
+        <form id="orderForm" onsubmit="xuLyDatHang(event)">
             
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
-                <input type="tel" id="phone" name="Số điện thoại" placeholder="Nhập số điện thoại..." required>
+                <input type="tel" id="phone" required placeholder="Nhập số điện thoại...">
             </div>
 
             <div class="form-group">
                 <label for="address">Địa chỉ giao hàng (*):</label>
-                <input type="text" id="address" name="Địa chỉ giao hàng" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
+                <input type="text" id="address" required placeholder="Nhập số nhà, tên đường, xã/phường...">
             </div>
 
             <div class="form-group">
                 <label for="product">Chọn loại bồ câu đặt mua (*):</label>
-                <select id="product" name="Loại bồ câu đặt mua" required>
+                <select id="product" required>
                     <option value="" disabled selected>-- Chọn loại bồ câu --</option>
                     <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ/cặp</option>
                     <option value="Bồ câu hậu bị 2 tháng tuổi (250k/cặp)">Bồ câu hậu bị 2 tháng tuổi - 250.000đ/cặp</option>
@@ -64,12 +69,12 @@
 
             <div class="form-group">
                 <label for="quantity">Số lượng đặt mua (*):</label>
-                <input type="text" id="quantity" name="Số lượng" placeholder="Ví dụ: 2 cặp, 5 con..." required>
+                <input type="text" id="quantity" required placeholder="Ví dụ: 2 cặp, 5 con...">
             </div>
 
             <div class="form-group">
                 <label for="note">Ghi chú thêm (Nếu có):</label>
-                <textarea id="note" name="Ghi chú" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
+                <textarea id="note" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
             </div>
 
             <button type="submit">XÁC NHẬN ĐẶT MUA NGAY</button>
@@ -84,6 +89,38 @@
         </div>
 
     </div>
+
+    <script>
+        function xuLyDatHang(e) {
+            e.preventDefault();
+            
+            var sdt = document.getElementById('phone').value;
+            var diaChi = document.getElementById('address').value;
+            var loaiBoCau = document.getElementById('product').value;
+            var soLuong = document.getElementById('quantity').value;
+            var ghiChu = document.getElementById('note').value;
+
+            // Hiển thị thông báo thành công cho khách hàng
+            document.getElementById('success-msg').style.display = 'block';
+            
+            // Soạn nội dung đơn hàng để gửi mail
+            var subject = encodeURIComponent("ĐƠN HÀNG MỚI TỪ WEBSITE - " + sdt);
+            var body = encodeURIComponent(
+                "Thông tin đơn hàng từ website Bổn Tân:\n\n" +
+                "- Số điện thoại: " + sdt + "\n" +
+                "- Địa chỉ giao hàng: " + diaChi + "\n" +
+                "- Loại bồ câu: " + loaiBoCau + "\n" +
+                "- Số lượng: " + soLuong + "\n" +
+                "- Ghi chú: " + (ghiChu ? ghiChu : "Không có")
+            );
+
+            // Tự động mở ứng dụng email gửi tới hộp thư của chú
+            setTimeout(function() {
+                window.location.href = "mailto:bocaubontan@gmail.com?subject=" + subject + "&body=" + body;
+                document.getElementById('orderForm').reset();
+            }, 1000);
+        }
+    </script>
 
 </body>
 </html>
