@@ -30,7 +30,7 @@
 
     <div class="container">
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, hệ thống sẽ chuyển đơn hàng trực tiếp qua Zalo của Bổn Tân!</p>
+        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Điền thông tin bên dưới, hệ thống sẽ tự động sao chép đơn hàng và chuyển sang Zalo của Bổn Tân!</p>
 
         <form id="orderForm">
             <div class="form-group">
@@ -98,8 +98,13 @@
                 text += "\n- Ghi chú: " + note;
             }
 
-            var zaloUrl = "https://zalo.me/0914121850?text=" + encodeURIComponent(text);
-            window.location.href = zaloUrl;
+            // Tự động copy nội dung đơn hàng vào bộ nhớ tạm
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Đã sao chép nội dung đơn hàng!\nTrang Zalo Bổn Tân sẽ mở ngay, quý khách chỉ cần DÁN (PASTE) nội dung và bấm gửi.");
+                window.location.href = "https://zalo.me/0914121850";
+            }).catch(function() {
+                window.location.href = "https://zalo.me/0914121850";
+            });
         });
     </script>
 
