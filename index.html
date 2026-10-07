@@ -15,6 +15,7 @@
         input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
         button { background-color: #ff4500; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
         button:hover { background-color: #e03e00; }
+        .success-msg { display: none; background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; padding: 15px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 16px; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -32,12 +33,17 @@
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
         <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
 
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <!-- Mã khóa nhận thư đơn hàng Web3Forms của chú Tân -->
-            <input type="hidden" name="access_key" value="7b8f86c6-896c-4846-8c0b-1cd7b0923176">
-            <input type="hidden" name="subject" value="ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE">
-            <input type="hidden" name="from_name" value="Nhà Nuôi Bồ Câu Bổn Tân">
-            
+        <!-- Thông báo thành công bằng tiếng Việt -->
+        <div id="result" class="success-msg">
+            🎉 Cảm ơn quý khách! Đơn hàng đã được gửi thành công. Bổn Tân sẽ liên hệ lại ngay!
+        </div>
+
+        <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Thay mã Access Key của chú vào đây nếu có, hoặc để nguyên -->
+            <input type="hidden" name="access_key" value="9b14f8ca-3eb4-44cf-a0e2-d352db0c5807">
+            <input type="hidden" name="subject" value="Đơn đặt hàng mới từ Website Bổn Tân">
+            <input type="hidden" name="from_name" value="Nhà nuôi bồ câu Bổn Tân">
+
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
                 <input type="tel" id="phone" name="Số điện thoại" placeholder="Nhập số điện thoại..." required>
@@ -71,7 +77,7 @@
                 <textarea id="note" name="Ghi chú" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
             </div>
 
-            <button type="submit">XÁC NHẬN ĐẶT MUA NGAY</button>
+            <button type="submit" id="btnSubmit">XÁC NHẬN ĐẶT MUA NGAY</button>
         </form>
 
         <!-- KHU VỰC HIỂN THỊ VIDEO THỰC TẾ TRỰC QUAN -->
@@ -83,6 +89,40 @@
         </div>
 
     </div>
+
+    <script>
+        const form = document.getElementById('orderForm');
+        const result = document.getElementById('result');
+        const btnSubmit = document.getElementById('btnSubmit');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            btnSubmit.innerText = 'ĐANG GỬI ĐƠN...';
+            btnSubmit.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                if (response.status === 200) {
+                    result.style.display = "block";
+                    form.reset();
+                } else {
+                    alert("Có lỗi xảy ra, vui lòng thử lại sau!");
+                }
+            })
+            .catch(error => {
+                alert("Không thể kết nối mạng, vui lòng kiểm tra lại!");
+            })
+            .then(() => {
+                btnSubmit.innerText = 'XÁC NHẬN ĐẶT MUA NGAY';
+                btnSubmit.disabled = false;
+            });
+        });
+    </script>
 
 </body>
 </html>
