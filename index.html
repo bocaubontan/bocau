@@ -13,8 +13,8 @@
         .form-group { margin-bottom: 18px; }
         label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #1e293b; }
         input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
-        .btn-submit { background-color: #d93025; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
-        .btn-submit:hover { background-color: #b52219; }
+        .btn-gmail { background-color: #d93025; color: white; border: none; padding: 16px 20px; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 10px; }
+        .btn-gmail:hover { background-color: #b52219; }
     </style>
 </head>
 <body>
@@ -30,7 +30,7 @@
 
     <div class="container">
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng điền thông tin bên dưới để gửi đơn hàng trực tiếp về Gmail của Bổn Tân!</p>
+        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Điền thông tin và bấm nút bên dưới để gửi đơn về Gmail Bổn Tân!</p>
 
         <form id="orderForm">
             <div class="form-group">
@@ -66,10 +66,10 @@
                 <textarea id="note" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">✉️ GỬI ĐƠN HÀNG QUA GMAIL</button>
+            <!-- CHỈ DUY NHẤT 1 NÚT GỬI GMAIL -->
+            <button type="submit" class="btn-gmail">✉️ GỬI ĐƠN HÀNG QUA GMAIL</button>
         </form>
 
-        <!-- KHU VỰC HIỂN THỊ VIDEO THỰC TẾ TRỰC QUAN -->
         <div style="text-align: center; margin-top: 25px; padding: 12px; background-color: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;">
             <p style="font-weight: bold; font-size: 15px; color: #333; margin-top: 0;">🎥 Video thực tế: Cận cảnh nhà nuôi chim bồ câu Bổn Tân</p>
             <div style="max-width: 250px; margin: 0 auto; aspect-ratio: 9/16; width: 100%;">
@@ -90,7 +90,7 @@
             var note = document.getElementById('note').value;
 
             var emailTo = "bocaubontan.quangngai@gmail.com";
-            var subject = "ĐƠN ĐẶT MUA BỒ CÂU TỪ WEBSITE - SĐT: " + phone;
+            var subject = "ĐƠN MUA BỒ CÂU TỪ WEBSITE - SĐT: " + phone;
             
             var body = "ĐƠN HÀNG ĐẶT MUA BỒ CÂU BỔN TÂN\n\n" +
                        "- Số điện thoại: " + phone + "\n" +
