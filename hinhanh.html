@@ -6,16 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
-    /* Lệnh này bảo máy tính: Khi rê chuột vào menu, hãy đổi chữ thành màu xanh đậm và in đậm lên */
-    nav a:hover {
-        color: #002288 !important;
-        font-weight: bold !important;
-        text-decoration: underline !important; /* Thêm gạch chân cho rõ ràng */
-    }
-</style>
-<body style="background-color: #faf9f6; margin: 0; padding: 0;">
+        nav { background-color: #f8fafc; padding: 12px 0; text-align: center; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        nav a { color: #0000d1; text-decoration: none; margin: 0 7px; font-weight: bold; font-size: 15px; display: inline-block; padding: 4px 2px; }
+        nav a:hover { color: #ff0000; text-decoration: underline; }
+    </style>
 
-   <!-- THANH MENU KHÓA CỐ ĐỊNH TRÊN CÙNG MÀN HÌNH -->
     <nav>
         <a href="index.html">Đặt mua</a>
         <a href="gioithieu.html">Giới thiệu</a>
@@ -24,7 +19,6 @@
         <a href="tintuc.html">Tin tức</a>
         <a href="lienhe.html">Liên hệ</a>
     </nav>
-
     <!-- ĐOẠN ĐỆM TRÁNH BỊ MENU ĐÈ MẤT CHỮ ĐẦU TRANG -->
     <div style="height: 70px; width: 100%;"></div>
 
