@@ -33,17 +33,13 @@
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
         <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
 
-        <!-- Thông báo thành công bằng tiếng Việt -->
+        <!-- Khung thông báo tiếng Việt -->
         <div id="result" class="success-msg">
             🎉 Cảm ơn quý khách! Đơn hàng đã được gửi thành công. Bổn Tân sẽ liên hệ lại ngay!
         </div>
 
-        <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
-            <!-- Thay mã Access Key của chú vào đây nếu có, hoặc để nguyên -->
-            <input type="hidden" name="access_key" value="9b14f8ca-3eb4-44cf-a0e2-d352db0c5807">
-            <input type="hidden" name="subject" value="Đơn đặt hàng mới từ Website Bổn Tân">
-            <input type="hidden" name="from_name" value="Nhà nuôi bồ câu Bổn Tân">
-
+        <form id="orderForm" action="https://formspree.io/f/xbjnqkyv" method="POST">
+            
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
                 <input type="tel" id="phone" name="Số điện thoại" placeholder="Nhập số điện thoại..." required>
@@ -102,20 +98,23 @@
 
             const formData = new FormData(form);
 
-            fetch('https://api.web3forms.com/submit', {
+            fetch(form.action, {
                 method: 'POST',
-                body: formData
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
             })
-            .then(async (response) => {
-                if (response.status === 200) {
+            .then(response => {
+                if (response.ok) {
                     result.style.display = "block";
                     form.reset();
                 } else {
-                    alert("Có lỗi xảy ra, vui lòng thử lại sau!");
+                    alert("Không thể gửi đơn hàng, vui lòng thử lại!");
                 }
             })
             .catch(error => {
-                alert("Không thể kết nối mạng, vui lòng kiểm tra lại!");
+                alert("Có lỗi kết nối mạng, vui lòng thử lại!");
             })
             .then(() => {
                 btnSubmit.innerText = 'XÁC NHẬN ĐẶT MUA NGAY';
