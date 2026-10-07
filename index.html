@@ -35,7 +35,7 @@
 
         <div id="successBox" class="success-box">
             <h3 style="margin:0 0 4px 0; color:#15803d; font-size: 16px;">🎉 CẢM ƠN QUÝ KHÁCH MUA HÀNG!</h3>
-            <p style="margin:0;">Thông tin đơn hàng đã được ghi nhận. Nhà nuôi bồ câu Bổn Tân sẽ gọi lại cho quý khách ngay lập tức!</p>
+            <p style="margin:0;">Thông tin đơn hàng đã được ghi nhận. Bổn Tân sẽ liên hệ lại ngay cho quý khách!</p>
         </div>
 
         <form id="orderForm">
@@ -87,22 +87,25 @@
 
             const formData = new FormData(form);
 
-            // Gửi dữ liệu tới Web3Forms ngầm
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => {
-                // Hiển thị thông báo thành công cho khách hàng
-                successBox.style.display = 'block';
-                form.reset();
-                form.style.display = 'none';
+            .then(async (response) => {
+                if (response.ok) {
+                    successBox.style.display = 'block';
+                    form.reset();
+                    form.style.display = 'none';
+                } else {
+                    alert("Có lỗi xảy ra, vui lòng thử lại!");
+                    submitBtn.innerText = "✅ XÁC NHẬN ĐẶT MUA NGAY";
+                    submitBtn.disabled = false;
+                }
             })
             .catch(error => {
-                // Trường hợp mạng chậm vẫn hiển thị thành công cho khách yên tâm
-                successBox.style.display = 'block';
-                form.reset();
-                form.style.display = 'none';
+                alert("Có lỗi kết nối, vui lòng thử lại!");
+                submitBtn.innerText = "✅ XÁC NHẬN ĐẶT MUA NGAY";
+                submitBtn.disabled = false;
             });
         });
     </script>
