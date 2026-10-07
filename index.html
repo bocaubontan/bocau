@@ -13,8 +13,8 @@
         .form-group { margin-bottom: 18px; }
         label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #1e293b; }
         input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
-        button { background-color: #ff4500; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
-        button:hover { background-color: #e03e00; }
+        button { background-color: #0084ff; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
+        button:hover { background-color: #0068ca; }
     </style>
 </head>
 <body>
@@ -30,27 +30,22 @@
 
     <div class="container">
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
+        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, hệ thống sẽ chuyển đơn hàng trực tiếp qua Zalo của Bổn Tân!</p>
 
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <!-- Mã Access Key của chú -->
-            <input type="hidden" name="access_key" value="9b14f8ca-3eb4-44cf-a0e2-d352db0c5807">
-            <input type="hidden" name="subject" value="ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE">
-            <input type="hidden" name="from_name" value="Nhà Nuôi Bồ Câu Bổn Tân">
-            
+        <form id="orderForm">
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
-                <input type="tel" id="phone" name="Số điện thoại" placeholder="Nhập số điện thoại..." required>
+                <input type="tel" id="phone" placeholder="Nhập số điện thoại..." required>
             </div>
 
             <div class="form-group">
                 <label for="address">Địa chỉ giao hàng (*):</label>
-                <input type="text" id="address" name="Địa chỉ giao hàng" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
+                <input type="text" id="address" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
             </div>
 
             <div class="form-group">
                 <label for="product">Chọn loại bồ câu đặt mua (*):</label>
-                <select id="product" name="Loại bồ câu đặt mua" required>
+                <select id="product" required>
                     <option value="" disabled selected>-- Chọn loại bồ câu --</option>
                     <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ/cặp</option>
                     <option value="Hậu bị 2 tháng (250k/cặp)">Hậu bị 2 tháng - 250.000đ/cặp</option>
@@ -63,15 +58,15 @@
 
             <div class="form-group">
                 <label for="quantity">Số lượng đặt mua (*):</label>
-                <input type="text" id="quantity" name="Số lượng" placeholder="Ví dụ: 2 cặp, 5 con..." required>
+                <input type="text" id="quantity" placeholder="Ví dụ: 2 cặp, 5 con..." required>
             </div>
 
             <div class="form-group">
                 <label for="note">Ghi chú thêm (Nếu có):</label>
-                <textarea id="note" name="Ghi chú" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
+                <textarea id="note" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
             </div>
 
-            <button type="submit">XÁC NHẬN ĐẶT MUA NGAY</button>
+            <button type="submit">📲 GỬI ĐƠN HÀNG QUA ZALO</button>
         </form>
 
         <!-- KHU VỰC HIỂN THỊ VIDEO THỰC TẾ TRỰC QUAN -->
@@ -83,6 +78,30 @@
         </div>
 
     </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var phone = document.getElementById('phone').value;
+            var address = document.getElementById('address').value;
+            var product = document.getElementById('product').value;
+            var quantity = document.getElementById('quantity').value;
+            var note = document.getElementById('note').value;
+
+            var text = "ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE:\n" +
+                       "- Số điện thoại: " + phone + "\n" +
+                       "- Địa chỉ: " + address + "\n" +
+                       "- Loại bồ câu: " + product + "\n" +
+                       "- Số lượng: " + quantity;
+            if (note) {
+                text += "\n- Ghi chú: " + note;
+            }
+
+            var zaloUrl = "https://zalo.me/0914121850?text=" + encodeURIComponent(text);
+            window.location.href = zaloUrl;
+        });
+    </script>
 
 </body>
 </html>
