@@ -2,36 +2,18 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt Mua - Nhà Nuôi Bồ Câu Bổn Tân Quảng Ngãi</title>
     <style>
-        * { box-sizing: border-box; -webkit-text-size-adjust: 100%; }
-        body { font-family: Arial, sans-serif; line-height: 1.5; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        
-        nav { background-color: #f8fafc; padding: 10px 0; text-align: center; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        nav a { color: #0000d1; text-decoration: none; margin: 0 5px; font-weight: bold; font-size: 13px; display: inline-block; padding: 3px 2px; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        nav { background-color: #f8fafc; padding: 12px 0; text-align: center; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        nav a { color: #0000d1; text-decoration: none; margin: 0 7px; font-weight: bold; font-size: 15px; display: inline-block; padding: 4px 2px; }
         nav a:hover { color: #ff0000; text-decoration: underline; }
-        
-        .container { max-width: 500px; margin: 10px auto; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 12px; }
-        label { display: block; font-weight: bold; margin-bottom: 4px; font-size: 13px; color: #1e293b; }
-        
-        input, select, textarea { 
-            width: 100%; 
-            padding: 8px 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 6px; 
-            font-size: 12px !important; 
-            background-color: #fff;
-        }
-
-        /* Chữ trong danh sách chọn mặt hàng được thu nhỏ gọn gàng */
-        select option { 
-            font-size: 11px !important; 
-            padding: 4px;
-        }
-
-        button { background-color: #ff4500; color: white; border: none; padding: 12px 15px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 5px; }
+        .container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #1e293b; }
+        input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
+        button { background-color: #ff4500; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
         button:hover { background-color: #e03e00; }
     </style>
 </head>
@@ -47,78 +29,56 @@
     </nav>
 
     <div class="container">
-        <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 18px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 12px; margin-bottom: 15px;">Vui lòng chọn loại bồ câu và điền thông tin, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
+        <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
+        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
 
-        <form onsubmit="guiDonHang(event)">
+        <form action="https://formspree.io/f/xbjnqkyv" method="POST">
             
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
-                <input type="tel" id="phone" required placeholder="Nhập số điện thoại...">
+                <input type="tel" id="phone" name="Số điện thoại" placeholder="Nhập số điện thoại..." required>
             </div>
 
             <div class="form-group">
                 <label for="address">Địa chỉ giao hàng (*):</label>
-                <input type="text" id="address" required placeholder="Nhập số nhà, tên đường, xã/phường...">
+                <input type="text" id="address" name="Địa chỉ giao hàng" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
             </div>
 
             <div class="form-group">
                 <label for="product">Chọn loại bồ câu đặt mua (*):</label>
-                <select id="product" required>
+                <select id="product" name="Loại bồ câu đặt mua" required>
                     <option value="" disabled selected>-- Chọn loại bồ câu --</option>
                     <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ/cặp</option>
-                    <option value="Bồ câu hậu bị 2 tháng (250k/cặp)">Bồ câu hậu bị 2 tháng tuổi - 250.000đ/cặp</option>
+                    <option value="Bồ câu hậu bị (250k/cặp)">Hậu bị 2 tháng - 250.000đ/cặp</option>
                     <option value="Bồ câu ra ràng (100k/cặp)">Bồ câu ra ràng - 100.000đ/cặp</option>
-                    <option value="Bồ câu hầm thuốc bắc (100k/con)">Bồ câu hầm thuốc bắc - 100.000đ/con</option>
-                    <option value="Bồ câu nấu đỗ đen (100k/con)">Bồ câu nấu đỗ đen - 100.000đ/con</option>
-                    <option value="Bồ câu hầm hạt sen (100k/con)">Bồ câu hầm hạt sen - 100.000đ/con</option>
+                    <option value="Hầm thuốc bắc (100k/con)">Hầm thuốc bắc - 100.000đ/con</option>
+                    <option value="Nấu đỗ đen (100k/con)">Nấu đỗ đen - 100.000đ/con</option>
+                    <option value="Hầm hạt sen (100k/con)">Hầm hạt sen - 100.000đ/con</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="quantity">Số lượng đặt mua (*):</label>
-                <input type="text" id="quantity" required placeholder="Ví dụ: 2 cặp, 5 con...">
+                <input type="text" id="quantity" name="Số lượng" placeholder="Ví dụ: 2 cặp, 5 con..." required>
             </div>
 
             <div class="form-group">
                 <label for="note">Ghi chú thêm (Nếu có):</label>
-                <textarea id="note" rows="2" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
+                <textarea id="note" name="Ghi chú" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
             </div>
 
             <button type="submit">XÁC NHẬN ĐẶT MUA NGAY</button>
         </form>
 
         <!-- KHU VỰC HIỂN THỊ VIDEO THỰC TẾ TRỰC QUAN -->
-        <div style="text-align: center; margin-top: 20px; padding: 10px; background-color: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;">
-            <p style="font-weight: bold; font-size: 13px; color: #333; margin-top: 0;">🎥 Video thực tế: Cận cảnh nhà nuôi chim bồ câu Bổn Tân</p>
-            <div style="max-width: 220px; margin: 0 auto; aspect-ratio: 9/16; width: 100%;">
+        <div style="text-align: center; margin-top: 25px; padding: 12px; background-color: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;">
+            <p style="font-weight: bold; font-size: 15px; color: #333; margin-top: 0;">🎥 Video thực tế: Cận cảnh nhà nuôi chim bồ câu Bổn Tân</p>
+            <div style="max-width: 250px; margin: 0 auto; aspect-ratio: 9/16; width: 100%;">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YX0mICHM_pA" title="Video thực tế trại bồ câu Bổn Tân" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
             </div>
         </div>
 
     </div>
-
-    <script>
-        function guiDonHang(e) {
-            e.preventDefault();
-            
-            var sdt = document.getElementById('phone').value;
-            var diaChi = document.getElementById('address').value;
-            var loaiBoCau = document.getElementById('product').value;
-            var soLuong = document.getElementById('quantity').value;
-            var ghiChu = document.getElementById('note').value;
-
-            var noiDung = "ĐƠN HÀNG MỚI TỪ WEBSITE BỔN TÂN:\n" +
-                          "- SĐT: " + sdt + "\n" +
-                          "- Địa chỉ: " + diaChi + "\n" +
-                          "- Loại chim: " + loaiBoCau + "\n" +
-                          "- Số lượng: " + soLuong + "\n" +
-                          "- Ghi chú: " + (ghiChu ? ghiChu : "Không");
-
-            alert("Cảm ơn quý khách! Thông tin đơn hàng đã sẵn sàng gửi tới Bổn Tân.");
-            window.location.href = "https://zalo.me/0983134114?text=" + encodeURIComponent(noiDung);
-        }
-    </script>
 
 </body>
 </html>
