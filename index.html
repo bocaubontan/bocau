@@ -15,6 +15,7 @@
         input, select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
         .btn-submit { background-color: #ff4500; color: white; border: none; padding: 12px 15px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 5px; }
         .btn-submit:hover { background-color: #e03e00; }
+        .success-box { display: none; background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 12px; border-radius: 6px; margin-bottom: 12px; text-align: center; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -32,25 +33,29 @@
         <h2 style="text-align: center; color: #ff4500; margin: 0 0 4px 0; font-size: 18px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
         <p style="text-align: center; color: #475569; font-size: 13px; margin: 0 0 12px 0;">Bổn Tân sẽ liên hệ lại ngay cho quý khách!</p>
 
-        <!-- FORM GỬI TRỰC TIẾP QUA WEB3FORMS -->
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="48b11c9d-8c10-4a87-9912-32b49d6360f7">
+        <div id="successBox" class="success-box">
+            <h3 style="margin:0 0 4px 0; color:#15803d; font-size: 16px;">🎉 CẢM ƠN QUÝ KHÁCH MUA HÀNG!</h3>
+            <p style="margin:0;">Thông tin đơn hàng đã được gửi thành công. Nhà nuôi bồ câu Bổn Tân sẽ gọi lại ngay cho quý khách!</p>
+        </div>
+
+        <form id="orderForm">
+            <!-- MÃ ACCESS KEY MỚI -->
+            <input type="hidden" name="access_key" value="97b15a6b-c40d-4581-998d-a417ca15ef27">
             <input type="hidden" name="subject" value="ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE BỔN TÂN">
-            <input type="hidden" name="from_name" value="Nhà Nuôi Bồ Câu Bổn Tân">
 
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
-                <input type="tel" name="Số điện thoại" id="phone" placeholder="Nhập số điện thoại..." required>
+                <input type="tel" name="Số điện thoại" placeholder="Nhập số điện thoại..." required>
             </div>
 
             <div class="form-group">
                 <label for="address">Địa chỉ giao hàng (*):</label>
-                <input type="text" name="Địa chỉ giao hàng" id="address" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
+                <input type="text" name="Địa chỉ giao hàng" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
             </div>
 
             <div class="form-group">
                 <label for="product">Chọn loại bồ câu đặt mua (*):</label>
-                <select name="Loại bồ câu đặt mua" id="product" required>
+                <select name="Loại bồ câu đặt mua" required>
                     <option value="" disabled selected>-- Chọn loại bồ câu --</option>
                     <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ/cặp</option>
                     <option value="Hậu bị 2 tháng (250k/cặp)">Hậu bị 2 tháng - 250.000đ/cặp</option>
@@ -63,12 +68,48 @@
 
             <div class="form-group">
                 <label for="quantity">Số lượng đặt mua (*):</label>
-                <input type="text" name="Số lượng" id="quantity" placeholder="Ví dụ: 2 cặp, 5 con..." required>
+                <input type="text" name="Số lượng" placeholder="Ví dụ: 2 cặp, 5 con..." required>
             </div>
 
-            <button type="submit" class="btn-submit">✅ XÁC NHẬN ĐẶT MUA NGAY</button>
+            <button type="submit" id="submitBtn" class="btn-submit">✅ XÁC NHẬN ĐẶT MUA NGAY</button>
         </form>
     </div>
+
+    <script>
+        const form = document.getElementById('orderForm');
+        const successBox = document.getElementById('successBox');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitBtn.innerText = "⏳ ĐANG GỬI ĐƠN HÀNG...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                if (response.ok) {
+                    successBox.style.display = 'block';
+                    form.reset();
+                    form.style.display = 'none';
+                } else {
+                    alert("Có lỗi xảy ra, vui lòng thử lại!");
+                    submitBtn.innerText = "✅ XÁC NHẬN ĐẶT MUA NGAY";
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                alert("Có lỗi kết nối, vui lòng kiểm tra mạng!");
+                submitBtn.innerText = "✅ XÁC NHẬN ĐẶT MUA NGAY";
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 
 </body>
 </html>
