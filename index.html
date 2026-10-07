@@ -86,11 +86,9 @@
             var quantity = document.getElementById('quantity').value;
             var note = document.getElementById('note').value;
 
-            // Hiển thị thông báo thành công
             document.getElementById('successBox').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Mở ứng dụng Tin nhắn SMS gửi tới Bổn Tân
             var smsText = "Don hang bo cau: SDT: " + phone + " - Dia chi: " + address + " - Loai: " + product + " - So luong: " + quantity;
             if (note) { smsText += " - Ghi chu: " + note; }
 
