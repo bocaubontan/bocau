@@ -9,13 +9,8 @@
         nav { background-color: #f8fafc; padding: 12px 0; text-align: center; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         nav a { color: #0000d1; text-decoration: none; margin: 0 7px; font-weight: bold; font-size: 15px; display: inline-block; padding: 4px 2px; }
         nav a:hover { color: #ff0000; text-decoration: underline; }
-        .container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 18px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #1e293b; }
-        input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
-        button { background-color: #ff4500; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
-        button:hover { background-color: #e03e00; }
-        .success-msg { display: none; background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; padding: 15px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 16px; margin-bottom: 20px; }
+        .container { max-width: 650px; margin: 20px auto; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        iframe { width: 100%; border: none; min-height: 800px; border-radius: 8px; }
     </style>
 </head>
 <body>
@@ -30,51 +25,11 @@
     </nav>
 
     <div class="container">
-        <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
+        <h2 style="text-align: center; color: #ff4500; margin-top: 5px; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
+        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 15px;">Vui lòng điền thông tin bên dưới, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
 
-        <!-- Khung thông báo tiếng Việt -->
-        <div id="result" class="success-msg">
-            🎉 Cảm ơn quý khách! Đơn hàng đã được gửi thành công. Bổn Tân sẽ liên hệ lại ngay!
-        </div>
-
-        <form id="orderForm" action="https://formspree.io/f/xbjnqkyv" method="POST">
-            
-            <div class="form-group">
-                <label for="phone">Số điện thoại người nhận (*):</label>
-                <input type="tel" id="phone" name="Số điện thoại" placeholder="Nhập số điện thoại..." required>
-            </div>
-
-            <div class="form-group">
-                <label for="address">Địa chỉ giao hàng (*):</label>
-                <input type="text" id="address" name="Địa chỉ giao hàng" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
-            </div>
-
-            <div class="form-group">
-                <label for="product">Chọn loại bồ câu đặt mua (*):</label>
-                <select id="product" name="Loại bồ câu đặt mua" required>
-                    <option value="" disabled selected>-- Chọn loại bồ câu --</option>
-                    <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ/cặp</option>
-                    <option value="Bồ câu hậu bị (250k/cặp)">Hậu bị 2 tháng - 250.000đ/cặp</option>
-                    <option value="Bồ câu ra ràng (100k/cặp)">Bồ câu ra ràng - 100.000đ/cặp</option>
-                    <option value="Hầm thuốc bắc (100k/con)">Hầm thuốc bắc - 100.000đ/con</option>
-                    <option value="Nấu đỗ đen (100k/con)">Nấu đỗ đen - 100.000đ/con</option>
-                    <option value="Hầm hạt sen (100k/con)">Hầm hạt sen - 100.000đ/con</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="quantity">Số lượng đặt mua (*):</label>
-                <input type="text" id="quantity" name="Số lượng" placeholder="Ví dụ: 2 cặp, 5 con..." required>
-            </div>
-
-            <div class="form-group">
-                <label for="note">Ghi chú thêm (Nếu có):</label>
-                <textarea id="note" name="Ghi chú" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
-            </div>
-
-            <button type="submit" id="btnSubmit">XÁC NHẬN ĐẶT MUA NGAY</button>
-        </form>
+        <!-- FORM ĐẶT HÀNG GOOGLE FORMS CỦA CHÚ TÂN -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeIhfwjbx06hBb8CBw1CCtTpoB3J4mMj-Tib2YmF_v1OZ6FnA/viewform?embedded=true">Đang tải biểu mẫu...</iframe>
 
         <!-- KHU VỰC HIỂN THỊ VIDEO THỰC TẾ TRỰC QUAN -->
         <div style="text-align: center; margin-top: 25px; padding: 12px; background-color: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;">
@@ -85,43 +40,6 @@
         </div>
 
     </div>
-
-    <script>
-        const form = document.getElementById('orderForm');
-        const result = document.getElementById('result');
-        const btnSubmit = document.getElementById('btnSubmit');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            btnSubmit.innerText = 'ĐANG GỬI ĐƠN...';
-            btnSubmit.disabled = true;
-
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    result.style.display = "block";
-                    form.reset();
-                } else {
-                    alert("Không thể gửi đơn hàng, vui lòng thử lại!");
-                }
-            })
-            .catch(error => {
-                alert("Có lỗi kết nối mạng, vui lòng thử lại!");
-            })
-            .then(() => {
-                btnSubmit.innerText = 'XÁC NHẬN ĐẶT MUA NGAY';
-                btnSubmit.disabled = false;
-            });
-        });
-    </script>
 
 </body>
 </html>
