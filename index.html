@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt Mua - Nhà Nuôi Bồ Câu Bổn Tân Quảng Ngãi</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        nav { background-color: #f8fafc; padding: 12px 0; text-align: center; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        nav a { color: #0000d1; text-decoration: none; margin: 0 7px; font-weight: bold; font-size: 15px; display: inline-block; padding: 4px 2px; }
+        body { font-family: Arial, sans-serif; line-height: 1.4; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        nav { background-color: #f8fafc; padding: 8px 0; text-align: center; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        nav a { color: #0000d1; text-decoration: none; margin: 0 5px; font-weight: bold; font-size: 14px; display: inline-block; padding: 2px 1px; }
         nav a:hover { color: #ff0000; text-decoration: underline; }
-        .container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 18px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #1e293b; }
-        input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
-        .btn-submit { background-color: #ff4500; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
+        .container { max-width: 500px; margin: 10px auto; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); box-sizing: border-box; }
+        .form-group { margin-bottom: 12px; }
+        label { display: block; font-weight: bold; margin-bottom: 4px; font-size: 14px; color: #1e293b; }
+        input, select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
+        .btn-submit { background-color: #ff4500; color: white; border: none; padding: 12px 15px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 5px; }
         .btn-submit:hover { background-color: #e03e00; }
-        .success-box { display: none; background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 15px; border-radius: 6px; margin-bottom: 20px; text-align: center; }
+        .success-box { display: none; background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 10px; border-radius: 6px; margin-bottom: 12px; text-align: center; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -30,12 +30,12 @@
     </nav>
 
     <div class="container">
-        <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng điền thông tin bên dưới, Bổn Tân sẽ liên hệ lại ngay cho quý khách!</p>
+        <h2 style="text-align: center; color: #ff4500; margin: 0 0 4px 0; font-size: 18px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
+        <p style="text-align: center; color: #475569; font-size: 13px; margin: 0 0 12px 0;">Bổn Tân sẽ liên hệ lại ngay cho quý khách!</p>
 
         <div id="successBox" class="success-box">
-            <h3 style="margin-top:0; color:#15803d;">🎉 CẢM ƠN QUÝ KHÁCH MUA HÀNG!</h3>
-            <p>Thông tin đơn hàng đã được ghi nhận. Bổn Tân sẽ liên hệ lại qua SĐT quý khách trong thời gian sớm nhất.</p>
+            <h3 style="margin:0 0 4px 0; color:#15803d; font-size: 15px;">🎉 CẢM ƠN QUÝ KHÁCH MUA HÀNG!</h3>
+            <p style="margin:0;">Thông tin đơn hàng đã được ghi nhận. Bổn Tân sẽ liên hệ lại ngay.</p>
         </div>
 
         <form id="orderForm">
@@ -67,11 +67,6 @@
                 <input type="text" id="quantity" placeholder="Ví dụ: 2 cặp, 5 con..." required>
             </div>
 
-            <div class="form-group">
-                <label for="note">Ghi chú thêm (Nếu có):</label>
-                <textarea id="note" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
-            </div>
-
             <button type="submit" class="btn-submit">✅ XÁC NHẬN ĐẶT MUA NGAY</button>
         </form>
     </div>
@@ -84,13 +79,10 @@
             var address = document.getElementById('address').value;
             var product = document.getElementById('product').value;
             var quantity = document.getElementById('quantity').value;
-            var note = document.getElementById('note').value;
 
             document.getElementById('successBox').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
 
             var smsText = "Don hang bo cau: SDT: " + phone + " - Dia chi: " + address + " - Loai: " + product + " - So luong: " + quantity;
-            if (note) { smsText += " - Ghi chu: " + note; }
 
             setTimeout(function() {
                 window.location.href = "sms:0914121850?body=" + encodeURIComponent(smsText);
