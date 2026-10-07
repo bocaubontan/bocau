@@ -13,8 +13,8 @@
         .form-group { margin-bottom: 18px; }
         label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #1e293b; }
         input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
-        .btn-gmail { background-color: #d93025; color: white; border: none; padding: 16px 20px; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 10px; }
-        .btn-gmail:hover { background-color: #b52219; }
+        .btn-submit { background-color: #d93025; color: white; border: none; padding: 16px 20px; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 10px; }
+        .btn-submit:hover { background-color: #b52219; }
     </style>
 </head>
 <body>
@@ -32,20 +32,21 @@
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
         <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Điền thông tin và bấm nút bên dưới để gửi đơn về Gmail Bổn Tân!</p>
 
-        <form id="orderForm">
+        <!-- Form gửi trực tiếp tự động về Gmail -->
+        <form action="https://formspree.io/f/xbldqypr" method="POST">
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
-                <input type="tel" id="phone" placeholder="Nhập số điện thoại..." required>
+                <input type="tel" name="Số điện thoại" id="phone" placeholder="Nhập số điện thoại..." required>
             </div>
 
             <div class="form-group">
                 <label for="address">Địa chỉ giao hàng (*):</label>
-                <input type="text" id="address" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
+                <input type="text" name="Địa chỉ" id="address" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
             </div>
 
             <div class="form-group">
                 <label for="product">Chọn loại bồ câu đặt mua (*):</label>
-                <select id="product" required>
+                <select name="Loại bồ câu" id="product" required>
                     <option value="" disabled selected>-- Chọn loại bồ câu --</option>
                     <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ/cặp</option>
                     <option value="Hậu bị 2 tháng (250k/cặp)">Hậu bị 2 tháng - 250.000đ/cặp</option>
@@ -58,16 +59,15 @@
 
             <div class="form-group">
                 <label for="quantity">Số lượng đặt mua (*):</label>
-                <input type="text" id="quantity" placeholder="Ví dụ: 2 cặp, 5 con..." required>
+                <input type="text" name="Số lượng" id="quantity" placeholder="Ví dụ: 2 cặp, 5 con..." required>
             </div>
 
             <div class="form-group">
                 <label for="note">Ghi chú thêm (Nếu có):</label>
-                <textarea id="note" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
+                <textarea name="Ghi chú" id="note" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
             </div>
 
-            <!-- CHỈ DUY NHẤT 1 NÚT GỬI GMAIL -->
-            <button type="submit" class="btn-gmail">✉️ GỬI ĐƠN HÀNG QUA GMAIL</button>
+            <button type="submit" class="btn-submit">✉️ XÁC NHẬN GỬI ĐƠN HÀNG</button>
         </form>
 
         <div style="text-align: center; margin-top: 25px; padding: 12px; background-color: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;">
@@ -78,30 +78,6 @@
         </div>
 
     </div>
-
-    <script>
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var phone = document.getElementById('phone').value;
-            var address = document.getElementById('address').value;
-            var product = document.getElementById('product').value;
-            var quantity = document.getElementById('quantity').value;
-            var note = document.getElementById('note').value;
-
-            var emailTo = "bocaubontan.quangngai@gmail.com";
-            var subject = "ĐƠN MUA BỒ CÂU TỪ WEBSITE - SĐT: " + phone;
-            
-            var body = "ĐƠN HÀNG ĐẶT MUA BỒ CÂU BỔN TÂN\n\n" +
-                       "- Số điện thoại: " + phone + "\n" +
-                       "- Địa chỉ giao hàng: " + address + "\n" +
-                       "- Loại bồ câu: " + product + "\n" +
-                       "- Số lượng: " + quantity + "\n" +
-                       "- Ghi chú: " + (note ? note : "Không có");
-
-            window.location.href = "mailto:" + emailTo + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-        });
-    </script>
 
 </body>
 </html>
