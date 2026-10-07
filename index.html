@@ -98,20 +98,17 @@
             var quantity = document.getElementById('quantity').value;
             var note = document.getElementById('note').value;
 
-            // Hiển thị thông báo đặt hàng thành công
+            // Hiển thị thông báo thành công
             document.getElementById('successBox').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Soạn sẵn tin nhắn cho điện thoại
+            // Mở ứng dụng Tin nhắn SMS gửi tới Bổn Tân
             var smsText = "Don hang bo cau: SDT: " + phone + " - Dia chi: " + address + " - Loai: " + product + " - So luong: " + quantity;
-            if (note) {
-                smsText += " - Ghi chu: " + note;
-            }
+            if (note) { smsText += " - Ghi chu: " + note; }
 
-            // Mở ứng dụng SMS để gửi tới điện thoại Bổn Tân
             setTimeout(function() {
                 window.location.href = "sms:0914121850?body=" + encodeURIComponent(smsText);
-            }, 1000);
+            }, 800);
         });
     </script>
 
