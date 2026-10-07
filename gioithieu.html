@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu - Nhà nuôi bồ câu Bổn Tân</title>
+    <title>Giới thiệu - Nhà Nuôi Bồ Câu Bổn Tân Quảng Ngãi</title>
     <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         nav { background-color: #f8fafc; padding: 12px 0; text-align: center; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         nav a { color: #0000d1; text-decoration: none; margin: 0 7px; font-weight: bold; font-size: 15px; display: inline-block; padding: 4px 2px; }
         nav a:hover { color: #ff0000; text-decoration: underline; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px; }
+        .image-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .btn-order { display: block; text-align: center; background-color: #ff4500; color: white; text-decoration: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 25px; text-transform: uppercase; }
+        .btn-order:hover { background-color: #e03e00; }
     </style>
+</head>
+<body>
 
     <nav>
         <a href="index.html">Đặt mua</a>
@@ -18,35 +26,22 @@
         <a href="tintuc.html">Tin tức</a>
         <a href="lienhe.html">Liên hệ</a>
     </nav>
-    <!-- ĐOẠN ĐỆM TRÁNH BỊ MENU ĐÈ MẤT CHỮ ĐẦU TRANG -->
-    <div style="height: 75px; width: 100%;"></div>
 
-    <!-- KHUNG NỘI DUNG CHÍNH -->
     <div class="container">
-        <h1 style="text-align: center; color: #0044cc; font-size: 24px; margin-top: 10px;">GIỚI THIỆU NHÀ NUÔI BỒ CÂU BỔN TÂN</h1>
-        
-        <p style="text-align: center; color: #555; font-style: italic;">Chào mừng quý khách đến với trang thông tin của Nhà nuôi bồ câu Bổn Tân.</p>
+        <h2 style="text-align: center; color: #0044cc; margin-top: 0; font-size: 24px;">GIỚI THIỆU NHÀ NUÔI BỒ CÂU BỔN TÂN</h2>
+        <p style="text-align: center; color: #666; font-style: italic; margin-bottom: 20px;">Chào mừng quý khách đến với trang thông tin của Nhà nuôi bồ câu Bổn Tân.</p>
 
-        <p style="text-align: justify; text-indent: 20px;">Nhà nuôi chim bồ câu Bổn Tân chuyên cung cấp giống chim bồ câu pháp, bồ câu giống chất lượng cao, bồ câu ra ràng 25-30 ngày tuổi.</p>
+        <p>Nhà nuôi chim bồ câu Bổn Tân chuyên cung cấp giống chim bồ câu pháp, bồ câu giống chất lượng cao, bồ câu ra ràng 25-30 ngày tuổi.</p>
+        <p>Với kinh nghiệm vốn có, nhà nuôi bồ câu Bổn Tân cùng chia sẻ với sự chân thành, tích cực nhất cả về kinh nghiệm và sản phẩm tốt nhất.</p>
 
-        <p style="text-align: justify; text-indent: 20px;">Với kinh nghiệm vốn có, nhà nuôi bồ câu Bổn Tân cùng chia sẻ với sự chân thành, tích cực nhất cả về kinh nghiệm và sản phẩm tốt nhất.</p>
-
-        <!-- KHU VỰC HÌNH ẢNH BAO GỌN -->
-        <div class="thanh-pho-anh">
-            <img src="chuongnuoi.jpg" alt="Chuồng nuôi bồ câu">
+        <!-- LƯỚI HÌNH ẢNH GỌN GÀNG KHÔNG BỊ TRÀN MÀN HÌNH -->
+        <div class="image-grid">
+            <img src="chuongnuoi.jpg" alt="Chuồng nuôi bồ câu 1">
             <img src="mangan.jpg" alt="Máng ăn bồ câu">
             <img src="mangnuoc.jpg" alt="Máng nước bồ câu">
         </div>
 
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-
-        <h3 style="text-align: center; color: #0044cc;">ĐỊA CHỈ & BẢN ĐỒ ĐƯỜNG ĐI</h3>
-        <p style="text-align: center; font-size: 16px;"><strong>Địa chỉ:</strong> 04 Trần Thái Tông, phường Nghĩa Lộ, Quảng Ngãi</p>
-        
-        <!-- BẢN ĐỒ GOOGLE MAPS -->
-        <div style="text-align: center; margin-top: 15px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3853.0763595604473!2d108.7885449!3d15.1051515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316ba3094c92b95b%3A0x67396a848c41258d!2zMDQgVHLhuqduIFRow6FpIFTDtG5nLCBOZ2jEqWEgTOG7mSwgUXXhuqNuZyBOZ8OjaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s" width="100%" height="350" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <a href="index.html" class="btn-order">👉 ĐẶT MUA CHIM BỒ CÂU ONLINE</a>
     </div>
 
 </body>
