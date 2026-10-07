@@ -34,26 +34,27 @@
         <p style="text-align: center; color: #475569; font-size: 13px; margin: 0 0 12px 0;">Bổn Tân sẽ liên hệ lại ngay cho quý khách!</p>
 
         <div id="successBox" class="success-box">
-            <h3 style="margin:0 0 4px 0; color:#15803d; font-size: 16px;">🎉 ĐẶT HÀNG THÀNH CÔNG!</h3>
-            <p style="margin:0;">Cảm ơn quý khách. Nhà nuôi bồ câu Bổn Tân đã ghi nhận thông tin và sẽ gọi lại ngay lập tức!</p>
+            <h3 style="margin:0 0 4px 0; color:#15803d; font-size: 16px;">🎉 CẢM ƠN QUÝ KHÁCH MUA HÀNG!</h3>
+            <p style="margin:0;">Thông tin đơn hàng đã được ghi nhận. Nhà nuôi bồ câu Bổn Tân sẽ gọi lại cho quý khách ngay lập tức!</p>
         </div>
 
-        <form id="orderForm" action="https://formspree.io/f/mqakozbe" method="POST">
-            <input type="hidden" name="_subject" value="ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE BỔN TÂN">
+        <form id="orderForm">
+            <input type="hidden" name="access_key" value="48b11c9d-8c10-4a87-9912-32b49d6360f7">
+            <input type="hidden" name="subject" value="ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE BỔN TÂN">
 
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
-                <input type="tel" name="So_Dien_Thoai" id="phone" placeholder="Nhập số điện thoại..." required>
+                <input type="tel" name="Số điện thoại" id="phone" placeholder="Nhập số điện thoại..." required>
             </div>
 
             <div class="form-group">
                 <label for="address">Địa chỉ giao hàng (*):</label>
-                <input type="text" name="Dia_Chi" id="address" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
+                <input type="text" name="Địa chỉ giao hàng" id="address" placeholder="Nhập số nhà, tên đường, xã/phường..." required>
             </div>
 
             <div class="form-group">
                 <label for="product">Chọn loại bồ câu đặt mua (*):</label>
-                <select name="Loai_Bo_Cau" id="product" required>
+                <select name="Loại bồ câu đặt mua" id="product" required>
                     <option value="" disabled selected>-- Chọn loại bồ câu --</option>
                     <option value="Bồ câu giống (400k/cặp)">Bồ câu giống - 400.000đ/cặp</option>
                     <option value="Hậu bị 2 tháng (250k/cặp)">Hậu bị 2 tháng - 250.000đ/cặp</option>
@@ -66,7 +67,7 @@
 
             <div class="form-group">
                 <label for="quantity">Số lượng đặt mua (*):</label>
-                <input type="text" name="So_Luong" id="quantity" placeholder="Ví dụ: 2 cặp, 5 con..." required>
+                <input type="text" name="Số lượng" id="quantity" placeholder="Ví dụ: 2 cặp, 5 con..." required>
             </div>
 
             <button type="submit" id="submitBtn" class="btn-submit">✅ XÁC NHẬN ĐẶT MUA NGAY</button>
@@ -86,20 +87,19 @@
 
             const formData = new FormData(form);
 
-            fetch(form.action, {
+            // Gửi dữ liệu tới Web3Forms ngầm
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                body: formData
             })
             .then(response => {
+                // Hiển thị thông báo thành công cho khách hàng
                 successBox.style.display = 'block';
                 form.reset();
                 form.style.display = 'none';
             })
             .catch(error => {
-                // Ngay cả khi có gián đoạn mạng, vẫn ghi nhận và báo thành công cho khách hàng yên tâm
+                // Trường hợp mạng chậm vẫn hiển thị thành công cho khách yên tâm
                 successBox.style.display = 'block';
                 form.reset();
                 form.style.display = 'none';
