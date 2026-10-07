@@ -32,7 +32,11 @@
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
         <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng chọn loại bồ câu và điền thông tin, Bổn Tân sẽ liên hệ lại ngay cho quý khách.</p>
 
-        <form action="https://formspree.io/f/xbjnqkyv" method="POST">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <!-- Mã khóa nhận thư đơn hàng Web3Forms -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE">
+            <input type="hidden" name="from_name" value="Nhà Nuôi Bồ Câu Bổn Tân">
             
             <div class="form-group">
                 <label for="phone">Số điện thoại người nhận (*):</label>
