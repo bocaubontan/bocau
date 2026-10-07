@@ -13,8 +13,10 @@
         .form-group { margin-bottom: 18px; }
         label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #1e293b; }
         input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; background-color: #fff; }
-        button { background-color: #0084ff; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
-        button:hover { background-color: #0068ca; }
+        .btn-submit { background-color: #ff4500; color: white; border: none; padding: 14px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-bottom: 10px; }
+        .btn-submit:hover { background-color: #e03e00; }
+        .btn-call { display: block; text-align: center; background-color: #10b981; color: white; text-decoration: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 6px; }
+        .btn-call:hover { background-color: #059669; }
     </style>
 </head>
 <body>
@@ -30,7 +32,7 @@
 
     <div class="container">
         <h2 style="text-align: center; color: #ff4500; margin-top: 0; font-size: 20px;">🛒 ĐẶT MUA BỒ CÂU ONLINE</h2>
-        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Điền thông tin bên dưới, hệ thống sẽ tự động sao chép đơn hàng và chuyển sang Zalo của Bổn Tân!</p>
+        <p style="text-align: center; color: #475569; font-size: 14px; margin-bottom: 20px;">Vui lòng điền thông tin bên dưới hoặc bấm gọi trực tiếp cho Bổn Tân!</p>
 
         <form id="orderForm">
             <div class="form-group">
@@ -66,7 +68,8 @@
                 <textarea id="note" rows="3" placeholder="Ví dụ: Giao buổi sáng..."></textarea>
             </div>
 
-            <button type="submit">📲 GỬI ĐƠN HÀNG QUA ZALO</button>
+            <button type="submit" class="btn-submit">📩 GỬI ĐƠN HÀNG QUA TIN NHẮN SMS</button>
+            <a href="tel:0914121850" class="btn-call">📞 GỌI TRỰC TIẾP: 0914.121.850</a>
         </form>
 
         <!-- KHU VỰC HIỂN THỊ VIDEO THỰC TẾ TRỰC QUAN -->
@@ -89,22 +92,13 @@
             var quantity = document.getElementById('quantity').value;
             var note = document.getElementById('note').value;
 
-            var text = "ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE:\n" +
-                       "- Số điện thoại: " + phone + "\n" +
-                       "- Địa chỉ: " + address + "\n" +
-                       "- Loại bồ câu: " + product + "\n" +
-                       "- Số lượng: " + quantity;
+            var text = "Don hang bo cau: SDT: " + phone + " - Dia chi: " + address + " - Loai: " + product + " - So luong: " + quantity;
             if (note) {
-                text += "\n- Ghi chú: " + note;
+                text += " - Ghi chu: " + note;
             }
 
-            // Tự động copy nội dung đơn hàng vào bộ nhớ tạm
-            navigator.clipboard.writeText(text).then(function() {
-                alert("Đã sao chép nội dung đơn hàng!\nTrang Zalo Bổn Tân sẽ mở ngay, quý khách chỉ cần DÁN (PASTE) nội dung và bấm gửi.");
-                window.location.href = "https://zalo.me/0914121850";
-            }).catch(function() {
-                window.location.href = "https://zalo.me/0914121850";
-            });
+            // Mở ứng dụng tin nhắn SMS của điện thoại
+            window.location.href = "sms:0914121850?body=" + encodeURIComponent(text);
         });
     </script>
 
