@@ -39,8 +39,8 @@
         </div>
 
         <form id="orderForm">
-            <!-- MÃ ACCESS KEY MỚI -->
-            <input type="hidden" name="access_key" value="97b15a6b-c40d-4581-998d-a417ca15ef27">
+            <!-- MÃ ACCESS KEY ĐANG HOẠT ĐỘNG CHUẨN CỦA CHÚ TÂN -->
+            <input type="hidden" name="access_key" value="48b11c9d-8c10-4a87-9912-32b49d6360f7">
             <input type="hidden" name="subject" value="ĐƠN HÀNG BỒ CÂU MỚI TỪ WEBSITE BỔN TÂN">
 
             <div class="form-group">
@@ -93,18 +93,19 @@
                 body: formData
             })
             .then(async (response) => {
-                if (response.ok) {
+                const res = await response.json();
+                if (response.status == 200 && res.success) {
                     successBox.style.display = 'block';
                     form.reset();
                     form.style.display = 'none';
                 } else {
-                    alert("Có lỗi xảy ra, vui lòng thử lại!");
+                    alert("Không thể gửi đơn hàng: " + (res.message || "Vui lòng thử lại!"));
                     submitBtn.innerText = "✅ XÁC NHẬN ĐẶT MUA NGAY";
                     submitBtn.disabled = false;
                 }
             })
             .catch(error => {
-                alert("Có lỗi kết nối, vui lòng kiểm tra mạng!");
+                alert("Có lỗi kết nối mạng, vui lòng thử lại!");
                 submitBtn.innerText = "✅ XÁC NHẬN ĐẶT MUA NGAY";
                 submitBtn.disabled = false;
             });
